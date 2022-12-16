@@ -1,0 +1,30 @@
+.friend { 
+    background-color: rgb(158, 236, 158);
+    border: 6px solid rgb(154, 204, 80);
+    margin: 10px 0px;
+    border-radius: 15px;
+    display: flex;
+    width: 400px;
+    justify-content: left;
+    align-items: center;
+    padding: 20px 30px;
+}
+.friendOnline {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(25, 204, 25);
+    border-radius: 50%;
+}
+.friendNotOnline{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+.friendAvatar{
+    margin: 0 20px ;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white;
+}
+.name {}

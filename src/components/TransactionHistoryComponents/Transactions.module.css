@@ -1,0 +1,16 @@
+.table {
+    background-color: rgb(178, 202, 238);
+    width: 400px;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+thead {
+    text-align: center;
+    background-color: rgb(80, 120, 206);
+}
+tr {
+}
+table, th, td {
+    border: 1px solid rgb(116, 197, 50);
+  }
+tbody {}
