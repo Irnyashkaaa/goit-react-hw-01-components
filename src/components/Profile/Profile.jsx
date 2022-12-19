@@ -1,23 +1,11 @@
 import React from 'react';
-//@ts-ignore
-import { Stat } from './UserStat.tsx';
+import { Stat } from './UserStat';
 import s from "./Profile.module.css"
-export type statType = {
-    label: string,
-    quantity: number
-}
-type propsType = {
-    username: string,
-    tag: string,
-    avatar: string,
-    stats: {},
-    location: string
-}
+import PropTypes from 'prop-types';
 
-export const ProfilePage: React.FC<propsType> = ({username, tag, avatar, stats, location}) =>{
 
-    const statsEntries: statType[] = Object.entries(stats)
-    
+export const ProfilePage = ({username, tag, avatar, stats, location}) =>{
+    const statsEntries = Object.entries(stats)
     return <div className={s.profile}>
         <div className={s.description}>
             <img src={avatar} alt='user avatar' className={s.avatar} />
@@ -26,9 +14,17 @@ export const ProfilePage: React.FC<propsType> = ({username, tag, avatar, stats, 
             <p className={s.location}>{location}</p>
         </div>
         <ul className={s.stats}>
-            {statsEntries.map((entr: statType) => {                
+            {statsEntries.map((entr) => {                
                 return <Stat key={entr[1]} label={entr[0]} quantity={entr[1]}></Stat>
             })}
         </ul>
     </div>
+}
+
+ProfilePage.propType = {
+    username: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
 }

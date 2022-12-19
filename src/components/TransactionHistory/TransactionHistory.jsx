@@ -1,12 +1,9 @@
 import React from 'react'
-import { transactionType } from './Transaction'
-//@ts-ignore
-import {Transaction} from './Transaction.tsx'
+import {Transaction} from './Transaction'
 import s from './Transactions.module.css'
-type propsType = {
-    items: transactionType[]
-}
-export const TransactionHistory: React.FC<propsType> = ({items}) => {    
+import PropTypes from 'prop-types'
+
+export const TransactionHistory = ({items}) => {    
     return <div>
         <table className={s.table}>
             <thead>
@@ -17,10 +14,19 @@ export const TransactionHistory: React.FC<propsType> = ({items}) => {
                 </tr>
             </thead>
             <tbody>
-                {items.map((t: transactionType) => {
+                {items.map(t=> {
                     return <Transaction key={t.id} type={t.type} amount={t.amount} currency={t.currency}/>
                 })}
             </tbody>
         </table>
     </div>
+}
+
+TransactionHistory.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired
+    }))
 }
